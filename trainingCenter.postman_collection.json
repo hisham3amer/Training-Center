@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "7e0325a9-17b9-46e2-9ad9-facb60ce24f7",
+		"name": "trainingCenter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33032892"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0NDI2MywiZXhwIjoxNzM0NDY0MjYzfQ.l72e0OJvZJcac65fDdEGnAn5mxCbwObeFECn8BJvF9w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fullName",
+							"value": "hany",
+							"type": "text"
+						},
+						{
+							"key": "userName",
+							"value": "hany",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "student",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "userName",
+							"value": "fathy",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3001/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testSignin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0MjAyNCwiZXhwIjoxNzA4NTQyMDc0fQ.V_0Tc65gwXclDE4YYwoYecgseIFIJFfemAHaUcmajuo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/testSignin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"testSignin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "studentsearch",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0NDI2MywiZXhwIjoxNzM0NDY0MjYzfQ.l72e0OJvZJcac65fDdEGnAn5mxCbwObeFECn8BJvF9w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/admin/student/search/hab",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"student",
+						"search",
+						"hab"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
