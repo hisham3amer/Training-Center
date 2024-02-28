@@ -46,10 +46,50 @@ async function showCourses(studentId) {
     client.close();
     return oneUser;
 }
+// async function resetStuPass(studentId, newPassword) {
+//     bcrypt.hash(newPassword.password, 11, async (err, hash) => {
+//         if (err) {
+//             //
+//         }
+//         else {
+//             const client = await MongoClient.connect(mongoConnection);
+//             const db = client.db();
+//             await db.collection("users").updateOne((
+//                 { _id: new ObjectID(studentId) },
+//                 { $set: { password: hash } }), function (err, res) {
+//                 if (err) throw err;
+//                 client.close();
+//                 return { "RESET PASSWORD": "success" };
+//             });
+//         }
+//     });
+// }
+async function resetStuPass(studentId, newPassword) {
+    try {
+        const hash = await bcrypt.hash(newPassword, 11);
+        const client = await MongoClient.connect(mongoConnection);
+        const db = client.db();
 
+        const result = await db.collection("users").updateOne(
+            { _id: new ObjectId(String(studentId)) },
+            { $set: { password: hash } }
+        );
+
+        client.close();
+
+        if (result.matchedCount === 1) {
+            return { "RESET PASSWORD": "success" };
+        } else {
+            throw { "RESET PASSWORD": "User not found" };
+        }
+    } catch (error) {
+        throw error;
+    }
+}
 
 module.exports = {
     searchStudent,
     storeCourseDegree,
-    showCourses
+    showCourses,
+    resetStuPass
 }

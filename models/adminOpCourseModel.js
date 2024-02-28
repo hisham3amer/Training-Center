@@ -3,6 +3,15 @@ const ObjectId = require('mongodb').ObjectId;
 
 const mongoConnection = process.env.MONGODB_CONNECTION;
 
+async function checkCourseById(courseId) {
+    const client = await MongoClient.connect(mongoConnection);
+    const db = client.db();
+
+    const result = await db.collection("courses").findOne({ _id: new ObjectId(String(courseId)) });
+    
+    client.close();
+    return result ? [result] : [];
+}
 
 async function checkCourseNameDuplication(courseName) {
     const client = await MongoClient.connect(mongoConnection);
@@ -26,9 +35,31 @@ async function store(createFormData) {
         return {"operation": "success"};
     });
 }
+async function update(courseId, updateFormData) {
+    const client = await MongoClient.connect(mongoConnection);
+    const db = client.db();
+    let updatedDoc  = {};
+
+    if (updateFormData.courseName) {
+        updatedDoc.courseName = updateFormData.courseName;
+    }
+    if (updateFormData.courseCategory) {
+        updatedDoc.courseCategory = updateFormData.courseCategory;
+    }
+
+    await db.collection("courses").updateOne(
+        { _id: new ObjectId(String(courseId)) },
+        { $set: updatedDoc }, function(err, res){
+        if(err) throw err;
+        client.close();
+        return {"operation": "success"};
+    });
+}
 
 
 module.exports = {
+    checkCourseById,
     checkCourseNameDuplication,
     store,
+    update
 }

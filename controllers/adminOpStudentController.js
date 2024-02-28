@@ -2,7 +2,6 @@ const adminOpStudentModel = require("../models/adminOpStudentModel");
 const Joi = require('joi');
 
 const searchStudent = (req, res) => {
-
     partOfStudentName = req.params['partOfStudentName'];
 
     adminOpStudentModel.searchStudent(partOfStudentName)
@@ -69,9 +68,42 @@ const showCourses = (req, res) => {
             }
         });
 }
+// const resetStuPass = (req, res) => {
+//     const studentId = req.params.studentId;
+//     const newPassword = req.body.newPassword;
+
+
+//     adminOpStudentModel.resetStuPass(studentId, newPassword)
+//         .then(result => {
+//             if (result["RESET PASSWORD"] === 'success') {
+//                 return res.status(200).json({ resetStudentPass: 'Password updated successfully' });
+//             }
+//             else {
+//                 res.status(404).json({ resetStudentPass: 'User not found or password update failed' });
+//             }
+//         });
+// }
+const resetStuPass = async (req, res) => {
+    const studentId = req.params.studentId;
+    const newPassword = req.body.newPassword;
+
+    try {
+        const result = await adminOpStudentModel.resetStuPass(studentId, newPassword);
+
+        if (result["RESET PASSWORD"] === 'success') {
+            res.status(200).json({ resetStudentPass: 'Password updated successfully' });
+        } else {
+            res.status(404).json({ resetStudentPass: 'User not found or password update failed' });
+        }
+    } catch (error) {
+        console.error("Controller Error:", error);
+        res.status(500).json({ resetStudentPass: 'Internal server error' });
+    }
+};
 
 module.exports = {
     searchStudent,
     storeCourseDegree,
-    showCourses
+    showCourses,
+    resetStuPass
 }

@@ -59,6 +59,9 @@ webRouter.post('/admin/student/search/:partOfStudentName', authController.verify
 webRouter.post('/admin/course/store', authController.verifySigninAdmin, (req, res) => {
     adminOpCourseController.store(req, res);
 });
+webRouter.put('/admin/course/update/:courseId', authController.verifySigninAdmin, (req, res) => {
+    adminOpCourseController.update(req, res);
+});
 
 webRouter.post('/admin/student/storeCourseDegree', authController.verifySigninAdmin, (req, res) => {
     adminOpStudentController.storeCourseDegree(req, res);
@@ -66,6 +69,9 @@ webRouter.post('/admin/student/storeCourseDegree', authController.verifySigninAd
 
 webRouter.post('/admin/student/showCourses/:studentId', authController.verifySigninAdmin, (req, res) => {
     adminOpStudentController.showCourses(req, res);
+});
+webRouter.put('/admin/student/resetStuPass/:studentId', authController.verifySigninAdmin, (req, res) => {
+    adminOpStudentController.resetStuPass(req, res);
 });
 
 //////////////   students end Points   /////////
