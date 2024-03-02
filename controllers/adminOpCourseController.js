@@ -101,7 +101,30 @@ const update = (req, res) => {
         });
 };
 
+const destroy = (req, res) => {
+    const courseId = req.params.courseId;
+
+    // Check if the course with courseId exists
+    adminOpCourseModel.checkCourseById(courseId)
+        .then(course => {
+            if (course.length === 0) {
+                return res.status(404).json({ errors: 'Course not found.' });
+            } else {
+                // Delete the course
+                adminOpCourseModel.destroy(courseId)
+                    .then(error => {
+                        if (error) {
+                            return res.status(500).json({ errors: 'Server error.' });
+                        } else {
+                            return res.status(200).json({ deleteCourse: 'Done' });
+                        }
+                    });
+            }
+        });
+};
+
 module.exports = {
     store,
-    update
+    update,
+    destroy
 }

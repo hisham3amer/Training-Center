@@ -62,9 +62,14 @@ webRouter.post('/admin/course/store', authController.verifySigninAdmin, (req, re
 webRouter.put('/admin/course/update/:courseId', authController.verifySigninAdmin, (req, res) => {
     adminOpCourseController.update(req, res);
 });
+webRouter.delete('/admin/course/destroy/:courseId', authController.verifySigninAdmin, (req, res) => {
+    adminOpCourseController.destroy(req, res);
+});
 
 webRouter.post('/admin/student/storeCourseDegree', authController.verifySigninAdmin, (req, res) => {
     adminOpStudentController.storeCourseDegree(req, res);
+});
+webRouter.delete('/admin/student/deleteCourseFromStudent/:studentId/:courseIdToDelete', authController.verifySigninAdmin, (req, res) => {adminOpStudentController.deleteCourseFromStudent(req, res);
 });
 
 webRouter.post('/admin/student/showCourses/:studentId', authController.verifySigninAdmin, (req, res) => {
@@ -78,6 +83,9 @@ webRouter.put('/admin/student/resetStuPass/:studentId', authController.verifySig
 
 webRouter.post('/student/showCourses', authController.verifySigninStudent, (req, res) => {
     studentController.showCourses(req, res);
+});
+webRouter.put('/student/:studentId/resetPassword', authController.verifySigninStudent, (req, res) => {
+    studentController.resetStuPassWithOldPassword(req, res);
 });
 
 

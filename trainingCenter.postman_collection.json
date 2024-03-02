@@ -1,164 +1,579 @@
 {
 	"info": {
-		"_postman_id": "7e0325a9-17b9-46e2-9ad9-facb60ce24f7",
+		"_postman_id": "3a54aa26-91b9-4c21-8166-9be354e42f3e",
 		"name": "trainingCenter",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33032892"
+		"_exporter_id": "33193496"
 	},
 	"item": [
 		{
-			"name": "signup",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0NDI2MywiZXhwIjoxNzM0NDY0MjYzfQ.l72e0OJvZJcac65fDdEGnAn5mxCbwObeFECn8BJvF9w",
-							"type": "string"
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userName",
+									"value": "fathy",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"signin"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "fullName",
-							"value": "hany",
-							"type": "text"
+				{
+					"name": "testSignin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0MjAyNCwiZXhwIjoxNzA4NTQyMDc0fQ.V_0Tc65gwXclDE4YYwoYecgseIFIJFfemAHaUcmajuo",
+									"type": "string"
+								}
+							]
 						},
-						{
-							"key": "userName",
-							"value": "hany",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "123123",
-							"type": "text"
-						},
-						{
-							"key": "confirmPassword",
-							"value": "123123",
-							"type": "text"
-						},
-						{
-							"key": "role",
-							"value": "student",
-							"type": "text"
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/testSignin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"testSignin"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/signup",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"signup"
-					]
+				{
+					"name": "signup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0NDI2MywiZXhwIjoxNzM0NDY0MjYzfQ.l72e0OJvZJcac65fDdEGnAn5mxCbwObeFECn8BJvF9w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "fullName",
+									"value": "hany",
+									"type": "text"
+								},
+								{
+									"key": "userName",
+									"value": "hany",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "123123",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "student",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "signin",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "userName",
-							"value": "fathy",
-							"type": "text"
+			"name": "Admin to Student",
+			"item": [
+				{
+					"name": "studentsearch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0NDI2MywiZXhwIjoxNzM0NDY0MjYzfQ.l72e0OJvZJcac65fDdEGnAn5mxCbwObeFECn8BJvF9w",
+									"type": "string"
+								}
+							]
 						},
-						{
-							"key": "password",
-							"value": "123123",
-							"type": "text"
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/admin/student/search/hab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"student",
+								"search",
+								"hab"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:3001/signin",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"signin"
-					]
+				{
+					"name": "Show courses for a student by Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODc5MjI3NiwiZXhwIjoxNzM0NzEyMjc2fQ.gyHy0WVWP4szXgSisFWT9vWPcSY6AllqCAB3J1i74OU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/admin/student/showCourses/65d650d8a659a1532a72e324",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"student",
+								"showCourses",
+								"65d650d8a659a1532a72e324"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Students by Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODc5MjI3NiwiZXhwIjoxNzM0NzEyMjc2fQ.gyHy0WVWP4szXgSisFWT9vWPcSY6AllqCAB3J1i74OU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/admin/student/search/ha",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"student",
+								"search",
+								"ha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Course Degree",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODc5MjI3NiwiZXhwIjoxNzM0NzEyMjc2fQ.gyHy0WVWP4szXgSisFWT9vWPcSY6AllqCAB3J1i74OU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "studentId",
+									"value": "65d62f5f5b033c9532dea5ea",
+									"type": "text"
+								},
+								{
+									"key": "courseId",
+									"value": "65da1fc7ebf8c50adc786da1",
+									"type": "text"
+								},
+								{
+									"key": "courseName",
+									"value": "photoshop",
+									"type": "text"
+								},
+								{
+									"key": "degree",
+									"value": "99",
+									"type": "text"
+								},
+								{
+									"key": "courseDate",
+									"value": "2024-01-25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/admin/student/storeCourseDegree",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"student",
+								"storeCourseDegree"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin delete student result",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwOTM3Mzk0NywiZXhwIjoxNzM1MjkzOTQ3fQ.wai4ub69K1IDsErSOU8gSa6ko-OuCRxgI-uihLPK9lA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/admin/student/deleteCourseFromStudent/:studentId/:courseIdToDelete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"student",
+								"deleteCourseFromStudent",
+								":studentId",
+								":courseIdToDelete"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "65d6511cd4d31867b62ad837"
+								},
+								{
+									"key": "courseIdToDelete",
+									"value": "65da1fc7ebf8c50adc786da1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Student Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwOTA5NjM4MCwiZXhwIjoxNzM1MDE2MzgwfQ.9i_wKTU3tMBP2gJpNl2RRvbiIuOuJ7R4zfWovNJ6l3E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newPassword",
+									"value": "123123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/admin/student/resetStuPass/65d650d8a659a1532a72e324",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"student",
+								"resetStuPass",
+								"65d650d8a659a1532a72e324"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "testSignin",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0MjAyNCwiZXhwIjoxNzA4NTQyMDc0fQ.V_0Tc65gwXclDE4YYwoYecgseIFIJFfemAHaUcmajuo",
-							"type": "string"
+			"name": "Admin to Courses",
+			"item": [
+				{
+					"name": "Add Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2NTBkOGE2NTlhMTUzMmE3MmUzMjQiLCJmdWxsbmFtZSI6ImVoYWIiLCJyb2xlIjoic3R1ZGVudCIsImlhdCI6MTcwODc5ODQ4MywiZXhwIjoxNzM0NzE4NDgzfQ.MqaI8ysz7EXtMHUSwyasH4kV-QN8GdHEWQV-0rE5zYg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "courseName",
+									"value": "react native 2024",
+									"type": "text"
+								},
+								{
+									"key": "courseCategory",
+									"value": "mobile dev",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/admin/course/store",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"course",
+								"store"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/testSignin",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"testSignin"
-					]
+				{
+					"name": "Admin Update Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwOTA5NjY4MCwiZXhwIjoxNzM1MDE2NjgwfQ.pEPNUH7RMRI1muM5WeesHXIJQpX-3ONqrDFMM3hQocA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "courseName",
+									"value": "Macro Economics",
+									"type": "text"
+								},
+								{
+									"key": "courseCategory",
+									"value": "Economics",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/admin/course/update/65da1f1d18447bfcca65e804",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"course",
+								"update",
+								"65da1f1d18447bfcca65e804"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin delete course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwOTI4MzM4NCwiZXhwIjoxNzM1MjAzMzg0fQ.btUVw7CKY_SSt69L9FDoGc9Yb7wfdQ9cKBCX42jJ5H0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/admin/course/destroy/65da1f1d18447bfcca45e804",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"admin",
+								"course",
+								"destroy",
+								"65da1f1d18447bfcca45e804"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "studentsearch",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODU0NDI2MywiZXhwIjoxNzM0NDY0MjYzfQ.l72e0OJvZJcac65fDdEGnAn5mxCbwObeFECn8BJvF9w",
-							"type": "string"
+			"name": "Student",
+			"item": [
+				{
+					"name": "Show Student Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWQ2MmViNjViMDMzYzk1MzJkZWE1ZTkiLCJmdWxsbmFtZSI6ImZhdGh5IGZhcm91ayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwODc5OTE5NSwiZXhwIjoxNzM0NzE5MTk1fQ.4y-7wPszM5v9Mq7NwJy4gGJRSF3YY-bH07q5jDcilUk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/student/showCourses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"student",
+								"showCourses"
+							]
 						}
-					]
+					},
+					"response": []
 				},
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3001/admin/student/search/hab",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3001",
-					"path": [
-						"admin",
-						"student",
-						"search",
-						"hab"
-					]
+				{
+					"name": "Student change password",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/student/:studentId/resetPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"student",
+								":studentId",
+								"resetPassword"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }

@@ -55,11 +55,29 @@ async function update(courseId, updateFormData) {
         return {"operation": "success"};
     });
 }
+async function destroy(courseId) {
+    const client = await MongoClient.connect(mongoConnection);
+    const db = client.db();
+
+    try {
+        const result = await db.collection("courses").deleteOne({ _id: new ObjectId(String(courseId)) });
+        client.close();
+        if (result.deletedCount === 1) {
+            return null; // Success, no error
+        } else {
+            throw new Error("Delete failed");
+        }
+    } catch (error) {
+        client.close();
+        throw error;
+    }
+}
 
 
 module.exports = {
     checkCourseById,
     checkCourseNameDuplication,
     store,
-    update
+    update,
+    destroy
 }

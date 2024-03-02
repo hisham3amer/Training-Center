@@ -68,21 +68,6 @@ const showCourses = (req, res) => {
             }
         });
 }
-// const resetStuPass = (req, res) => {
-//     const studentId = req.params.studentId;
-//     const newPassword = req.body.newPassword;
-
-
-//     adminOpStudentModel.resetStuPass(studentId, newPassword)
-//         .then(result => {
-//             if (result["RESET PASSWORD"] === 'success') {
-//                 return res.status(200).json({ resetStudentPass: 'Password updated successfully' });
-//             }
-//             else {
-//                 res.status(404).json({ resetStudentPass: 'User not found or password update failed' });
-//             }
-//         });
-// }
 const resetStuPass = async (req, res) => {
     const studentId = req.params.studentId;
     const newPassword = req.body.newPassword;
@@ -101,9 +86,28 @@ const resetStuPass = async (req, res) => {
     }
 };
 
+const deleteCourseFromStudent = (req, res) => {
+    const studentId = req.params.studentId;
+    const courseIdToDelete = req.params.courseIdToDelete;
+
+    adminOpStudentModel.deleteCourseFromStudent(studentId, courseIdToDelete)
+        .then(result => {
+            if (result && result.operation === 'success') {
+                console.log(result, result.operation)
+                return res.status(200).json({ deleteCourseFromStudent: 'Done' });
+            } else {
+                return res.status(404).json({ errors: 'Course not found for the student or deletion failed' });
+            }
+        })
+        .catch(error => {
+            console.error("Controller Error:", error);
+            return res.status(500).json({ errors: 'Server error' });
+        });
+};
 module.exports = {
     searchStudent,
     storeCourseDegree,
     showCourses,
-    resetStuPass
+    resetStuPass,
+    deleteCourseFromStudent
 }

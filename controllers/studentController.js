@@ -31,7 +31,25 @@ const showCourses = (req, res) => {
         });
 }
 
+const resetStuPassWithOldPassword = async (req, res) => {
+    const studentId = req.params.studentId;
+    const oldPassword = req.body.oldPassword;
+    const newPassword = req.body.newPassword;
 
+    try {
+        const result = await studentModel.resetStuPassWithOldPassword(studentId, oldPassword, newPassword);
+
+        if (result["RESET PASSWORD"] === 'success') {
+            res.status(200).json({ resetStudentPass: 'Password updated successfully' });
+        } else {
+            res.status(401).json({ resetStudentPass: 'Old password incorrect or password update failed' });
+        }
+    } catch (error) {
+        console.error("Controller Error:", error);
+        res.status(500).json({ resetStudentPass: 'Internal server error' });
+    }
+};
 module.exports = {
-    showCourses
+    showCourses,
+    resetStuPassWithOldPassword
 }
